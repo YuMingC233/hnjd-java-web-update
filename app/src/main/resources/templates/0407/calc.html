@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>计算器</title>
+    <script type="text/javascript" src=""></script>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+    <h2>计算器</h2>
+    <form method="post" action="/getCalcResult">
+        <label for="num1">数字1:</label>
+        <input type="text" id="num1" name="num1"><br><br>
+        <label for="num2">数字2:</label>
+        <input type="text" id="num2" name="num2"><br><br>
+        <label for="operator">运算符:</label>
+        <select id="operator" name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+
+    <h1 th:if="${resultNum} != null">计算结果为：<span th:text="${resultNum}"></span></h1>
+</body>
+
+<script>
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <h2>注册界面</h2>
+    <hr>
+    <form>
+        <label for="account">账号:</label>
+        <input type="text" id="account" name="account"><br><br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <label>性别:</label>
+        <input type="radio" id="male" name="gender" value="男">
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="女">
+        <label for="female">女</label><br><br>
+
+        <label>爱好:</label>
+        <input type="checkbox" id="basketball" name="hobby" value="篮球">
+        <label for="basketball">篮球</label>
+        <input type="checkbox" id="football" name="hobby" value="足球">
+        <label for="football">足球</label>
+        <input type="checkbox" id="pingpong" name="hobby" value="排球">
+        <label for="pingpong">排球</label><br><br>
+
+        <label for="intro">个人简介:</label>
+        <textarea id="intro" name="intro" rows="4" cols="50"></textarea><br><br>
+
+        <label for="birthday">生日:</label>
+        <input type="date" id="birthday" name="birthday"><br><br>
+
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="class">班级:</label>
+        <select id="class" name="class">
+          <option value="soft2201">人工智能2201</option>
+          <option value="soft2202">人工智能2202</option>
+        </select><br><br>
+
+        <label for="tel">电话号码:</label>
+        <input type="tel" id="tel" name="tel" pattern="[0-9]{11}"><br><br>
+
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+    <hr/>
+
+  </body>
+
+</html>
