@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>result</title>
+    <script type="text/javascript" src=""></script>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <h2>测试结果</h2>
+    <span th:text="${uClass}"/>班的<span th:text="${uName}"></span>同学
+    <h1 th:if="${uScore} != null">测试结果为：<span th:text="${uScore}"></span></h1>
+    <h1 th:if="${uScore} == null">测试结果为：<span th:text="未知"></span></h1>
+    <a href="/exam">返回</a>
+</body>
+<script></script>
+
+</html>

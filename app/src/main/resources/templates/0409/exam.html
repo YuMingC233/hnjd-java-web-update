@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>测试系统</title>
+    <script type="text/javascript" src=""></script>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <form target="_blank" method="post" action="/req_demo">
+        <label for="name">请输入姓名:</label>
+        <input type="text" id="name" name="uName">
+        <label for="name">请选择班级:</label>
+        <select id="class" name="uClass">
+            <option value="1">1班</option>
+            <option value="2">2班</option>
+            <option value="3">3班</option>
+            <option value="4">4班</option>
+        </select>
+
+        <fieldset>
+            <legend>以下哪个选项是正确的？</legend>
+            <div>
+                <input type="radio" name="drone" value="no" />
+                <label for="huey">错误</label>
+            </div>
+
+            <div>
+                <input type="radio" name="drone" value="yes" />
+                <label for="dewey">正确</label>
+            </div>
+
+            <div>
+                <input type="radio" name="drone" value="no" />
+                <label for="louie">错误</label>
+            </div>
+
+            <div>
+                <input type="radio" name="drone" value="no" />
+                <label for="louie">错误</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>以下哪个选项是错误的？</legend>
+            <div>
+                <input type="radio" name="ponp" value="yes" />
+                <label for="huey">正确</label>
+            </div>
+
+            <div>
+                <input type="radio" name="ponp" value="yes" />
+                <label for="dewey">正确</label>
+            </div>
+
+            <div>
+                <input type="radio" name="ponp" value="no" />
+                <label for="louie">错误</label>
+            </div>
+
+            <div>
+                <input type="radio" name="ponp" value="yes" />
+                <label for="louie">正确</label>
+            </div>
+        </fieldset>
+        <button type="submit">提交</button>
+    </form>
+</body>
+<script></script>
+
+</html>

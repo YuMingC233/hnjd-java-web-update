@@ -1,4 +1,4 @@
-package com.hnjd.hyx.Controller
+package com.hnjd.hyx.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -45,5 +45,67 @@ class AprController {
         model.addAttribute("num1", num1)
         model.addAttribute("num2", num2)
         return "/0407/calc"
+    }
+
+    @GetMapping("exam_demo")
+    fun reqDemo() : String
+    {
+        return "/0409/exam"
+    }
+
+    @PostMapping("req_demo")
+    fun reqDemo(
+        model : Model,
+        @RequestParam("uName") uName : String,
+        @RequestParam("uClass") uClass : String,
+        @RequestParam("drone") option1 : String,
+        @RequestParam("ponp") option2 : String
+    ) : String
+    {
+        var score = 0
+        model.addAttribute("uName", uName)
+        model.addAttribute("uClass", uClass)
+
+        if (option1 == "yes")
+            score += 50
+        if (option2 == "no")
+            score += 50
+
+        model.addAttribute("uScore", score)
+        return "/0409/exam_result"
+    }
+
+    @GetMapping("goto")
+    fun goto() : String
+    {
+        return "/0409/goto"
+    }
+
+    @PostMapping("goto_sth")
+    fun gotoSth(
+        model : Model,
+        @RequestParam("url") url : String
+    ) : String
+    {
+        return "redirect:$url"
+    }
+
+    @GetMapping("login0409")
+    fun login0407() : String
+    {
+        return "/0409/login"
+    }
+
+    @PostMapping("login0409-do")
+    fun login0409Do(
+        model : Model,
+        @RequestParam("username") uName : String,
+        @RequestParam("password") uPwd : String
+    ) : String
+    {
+        if (uName == "demo" && uPwd == "demo")
+            return "/0409/success"
+        else
+            return "/0409/faild"
     }
 }
