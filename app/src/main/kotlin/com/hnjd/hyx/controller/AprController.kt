@@ -1,10 +1,14 @@
 package com.hnjd.hyx.controller
 
+import com.hnjd.hyx.user.pojo.vo.registerUserDTO
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
+import com.hnjd.hyx.user.service.IUserService
+import org.springframework.web.bind.annotation.RequestBody
 
 @Controller
 class AprController {
@@ -96,6 +100,15 @@ class AprController {
         return "/0409/login"
     }
 
+    @GetMapping("register0409")
+    fun register0409() : String
+    {
+        return "/0409/register"
+    }
+
+    @Autowired
+    var userService : IUserService? = null
+
     @PostMapping("login0409-do")
     fun login0409Do(
         model : Model,
@@ -103,7 +116,25 @@ class AprController {
         @RequestParam("password") uPwd : String
     ) : String
     {
-        if (uName == "demo" && uPwd == "demo")
+        model.addAttribute("isLogin", true)
+        if (userService!!.login(uName, uPwd))
+            return "/0409/success"
+        else
+            return "/0409/faild"
+    }
+
+
+    @PostMapping("register0409-do")
+    fun register0409Do(
+        model : Model,
+        @RequestParam("name") name: String,
+        @RequestParam("password") pwd: String,
+        @RequestParam("passwordRepeat") rptPwd: String
+    ) : String
+    {
+        model.addAttribute("isLogin", false)
+        val userDTO = registerUserDTO(name, pwd, rptPwd)
+        if (userService!!.register(userDTO))
             return "/0409/success"
         else
             return "/0409/faild"

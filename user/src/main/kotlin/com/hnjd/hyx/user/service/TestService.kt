@@ -1,4 +1,4 @@
-package com.hnjd.hyx.service
+package com.hnjd.hyx.user.service
 
 import org.springframework.stereotype.Service
 

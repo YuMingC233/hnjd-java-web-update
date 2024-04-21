@@ -1,0 +1,22 @@
+spring:
+  ai:
+    openai:
+      api-key: 'sk-verysecret'
+      chat:
+        options:
+          model: gpt-4-turbo-preview
+          temperature: .7
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 'verysecret'
+    url: jdbc:mysql://localhost:3306/review_db
+
+# MyBatis Plus配置
+mybatis-plus:
+  # 搜索指定包别名
+  typeAliasesPackage: com.hnjd.hyx.**.pojo.do
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 加载全局的配置文件
+  configLocation: classpath:mybatis/mybatis-config.xml

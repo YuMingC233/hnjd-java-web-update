@@ -51,7 +51,7 @@ subprojects {
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
-
+        implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.5")
 
         implementation("com.alibaba:dashscope-sdk-java:2.10.1"){
             exclude(group = "org.slf4j", module = "slf4j-simple")

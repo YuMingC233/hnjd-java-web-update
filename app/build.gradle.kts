@@ -5,5 +5,5 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":service"))
+    implementation(project(":user"))
 }

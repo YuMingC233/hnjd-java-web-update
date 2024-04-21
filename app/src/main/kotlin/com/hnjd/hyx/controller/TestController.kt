@@ -1,6 +1,6 @@
 package com.hnjd.hyx.controller
 
-import com.hnjd.hyx.service.TestService
+import com.hnjd.hyx.user.service.TestService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
