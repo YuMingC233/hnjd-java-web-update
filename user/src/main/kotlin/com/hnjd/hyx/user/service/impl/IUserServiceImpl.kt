@@ -1,6 +1,7 @@
 package com.hnjd.hyx.user.service.impl
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import com.hnjd.hyx.user.mapper.userMapper
 import com.hnjd.hyx.user.pojo.`do`.user
@@ -23,6 +24,13 @@ class IUserServiceImpl: ServiceImpl<userMapper, user>(), IUserService {
         return this.count(queryWrapper) == 1.toLong()
     }
 
+    override fun loginAdmin(name: String, password: String): Boolean {
+        val queryWrapper : QueryWrapper<user> = QueryWrapper<user>()
+            .eq("name", name)
+            .eq("password", password)
+        return this.count(queryWrapper) == 1.toLong()
+    }
+
     override fun register(userDTO: registerUserDTO): Boolean {
         val user = user()
         if (userDTO.name == null || userDTO.password == null || userDTO.passwordRepeat == null) {
@@ -35,5 +43,17 @@ class IUserServiceImpl: ServiceImpl<userMapper, user>(), IUserService {
         user.password = userDTO.password
 
         return this.save(user)
+    }
+
+    override fun modifyPwd(userName: String, oldPwd: String, newPwd: String): Boolean {
+        // 查找对应账号信息
+        val user = userMapper.selectOne(QueryWrapper<user>().eq("name", userName)) as user
+        // 判断旧密码是否正确
+        if (user.password != oldPwd) {
+            return false
+        }
+
+        // 更新密码
+        return update(UpdateWrapper<user>().eq("name", user.name).set("password", newPwd))
     }
 }

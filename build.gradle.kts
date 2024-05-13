@@ -53,6 +53,10 @@ subprojects {
         testImplementation("org.springframework.security:spring-security-test")
         implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.5")
 
+        // https://mvnrepository.com/artifact/cn.hutool/hutool-all
+        implementation("cn.hutool:hutool-all:5.8.27")
+
+
         implementation("com.alibaba:dashscope-sdk-java:2.10.1"){
             exclude(group = "org.slf4j", module = "slf4j-simple")
         }
