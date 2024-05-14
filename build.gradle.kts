@@ -22,10 +22,11 @@ configurations {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://repo.spring.io/milestone") }
+    maven {
+        isAllowInsecureProtocol = true
+        url = uri("https://repo.spring.io/milestone")
+    }
 }
-
-extra["springAiVersion"] = "0.8.0"
 
 subprojects {
     apply{
@@ -43,10 +44,8 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
-        implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
         implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
         developmentOnly("org.springframework.boot:spring-boot-devtools")
-        developmentOnly("org.springframework.boot:spring-boot-docker-compose")
         runtimeOnly("com.mysql:mysql-connector-j")
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -64,7 +63,6 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom("org.springframework.ai:spring-ai-bom:${property("springAiVersion")}")
         }
     }
 
