@@ -1,6 +1,5 @@
 package com.hnjd.hyx
 
-import io.netty.handler.codec.http.cors.CorsConfig
 import org.mybatis.spring.annotation.MapperScan
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
